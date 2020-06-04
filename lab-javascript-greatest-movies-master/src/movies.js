@@ -61,7 +61,7 @@ const dramaMoviesRate = (array, genre) => {
   return averageMovieRate;
 };
 
-console.log(dramaMoviesRate(moviesData, "Drama"));
+console.log(dramaMoviesRate(moviesData, "Comedy"));
 
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
