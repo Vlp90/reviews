@@ -66,9 +66,46 @@ console.log(dramaMoviesRate(moviesData, "Comedy"));
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 
+const orderByYear = (array) => {
+
+function compare( a, b ) {
+    if ( a.year < b.year ){
+      return -1;
+    }
+    if ( a.year > b.year ){
+      return 1;
+    }
+    return 0;
+  }
+  
+  newArray = array.sort( compare );
+
+return newArray
+}
+
+// console.log(orderByYear(moviesData))
 
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
+
+const orderAlphabetically = (array) => {
+    function compare( a, b ) {
+        if ( a.title < b.title ){
+          return -1;
+        }
+        if ( a.title > b.title ){
+          return 1;
+        }
+        return 0;
+      }
+      
+      newArray = array.sort(compare).slice(0, 20);
+    
+    console.log(newArray) 
+}
+
+orderAlphabetically(moviesData)
+
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 
