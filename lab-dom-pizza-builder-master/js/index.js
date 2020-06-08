@@ -4,9 +4,9 @@
 let basePrice = 10;
 let ingredients = {
   pepperoni: { name: "pepperoni", price: 1 },
-  mushrooms: { name: "Mushrooms", price: 1 },
-  greenPeppers: { name: "Green Peppers", price: 1 },
-  whiteSauce: { name: "White sauce", price: 3 },
+  mushrooms: { name: "Mushrooms", price: 2 },
+  greenPeppers: { name: "Green Peppers", price: 3 },
+  whiteSauce: { name: "White sauce", price: 4 },
   glutenFreeCrust: { name: "Gluten-free crust", price: 5 },
 };
 
@@ -129,9 +129,27 @@ function renderPrice() {
   // textChanger = document.getElementsByClassName("panel")
   // textChanger.innerHTML("vlad")
 
-  const listIngredients = document.querySelector(".panel.price ul li");
+  checkIngre = ingredients.pepperoni;
 
-  listIngredients.innerHTML = "vlad";
+  const list = document.querySelector(".panel.price ul");
+  const totalPrice = document.querySelector(".panel.price strong");
+
+  list.textContent = "";
+
+  let listItems = "";
+  let total = basePrice;
+
+  for (let key in state) {
+    if (state[key]) {
+      listItems += `<li> $${ingredients[key].price} ${ingredients[key].name} </li>`;
+      // console.log(ingredients[key].name);
+      // console.log(ingredients[key].price);
+      total += ingredients[key].price;
+    }
+  }
+
+  list.innerHTML = listItems;
+  totalPrice.textContent = `$${total}`;
 }
 
 renderEverything();
