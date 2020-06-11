@@ -60,6 +60,11 @@ table input[type='number'] {
   background-color: #f27471;
 }
 
+.btn-create {
+  background-color: #2d354c;
+  color: white;
+}
+
 h1,
 h2,
 .calculate-total {
