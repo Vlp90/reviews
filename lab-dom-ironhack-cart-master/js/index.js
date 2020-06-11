@@ -70,6 +70,18 @@ function createProduct() {
   // console.log(tableBody);
   // console.log(product);
   // console.log("creation de produit");
+
+ let removeName = document.querySelector(
+  ".create-product input[name='product-name']"
+);
+
+let removePrice = document.querySelector(
+  ".create-product input[name='product-price']"
+);
+
+removeName.value = ''
+removePrice.value = ''
+
 }
 
 window.addEventListener("load", () => {
