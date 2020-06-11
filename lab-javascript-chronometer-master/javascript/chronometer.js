@@ -10,15 +10,21 @@ class Chronometer {
       if (callback) {
         callback();
       }
-    }, 1000);
+    }, 10);
   }
 
   getMinutes() {
-    return Math.floor(this.currentTime / 60);
+      return Math.floor(this.currentTime / 100 / 60);
+
   }
 
   getSeconds() {
-    return Math.floor(this.currentTime % 60);
+      return Math.floor(this.currentTime / 100) % 60;
+
+  }
+
+  getMilliseconds() {
+    return this.currentTime % 100;
   }
 
   twoDigitsNumber(number) {
@@ -38,10 +44,10 @@ class Chronometer {
   splitClick() {
     const formatedMinutes = this.twoDigitsNumber(this.getMinutes());
     const formatedSeconds = this.twoDigitsNumber(this.getSeconds());
-
-   return `${formatedMinutes}:${formatedSeconds}`;
-    
+    const formatedMillis = this.twoDigitsNumber(this.getMilliseconds());
+    return `${formatedMinutes}:${formatedSeconds}:${formatedMillis}`;
   }
+
 }
 
 const test = new Chronometer();

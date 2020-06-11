@@ -16,13 +16,14 @@ let splits = document.getElementById("splits");
 function printTime() {
   printMinutes();
   printSeconds();
+  printMilliseconds();
 }
 
 function printMinutes() {
   const minutes = chronometer.splitClick().split(":")[0];
   minDec.innerHTML = minutes.split("")[0];
   minUni.innerHTML = minutes.split("")[1];
-  console.log(minutes + "je suis les minutes");
+  // console.log(minutes + "je suis les minutes");
 }
 
 function printSeconds() {
@@ -31,13 +32,18 @@ function printSeconds() {
   secDec.innerHTML = secondes.split("")[0];
   secUni.innerHTML = secondes.split("")[1];
 
-  console.log(secondes + "je suis les secondes");
+  // console.log(secondes + "je suis les secondes");
 }
 
-// // ==> BONUS
-// function printMilliseconds() {
-//   // ... your code goes here
-// }
+// ==> BONUS
+function printMilliseconds() {
+  const milliSecondes = chronometer.splitClick().split(":")[2];
+
+  milDec.innerHTML = milliSecondes.split("")[0];
+  milUni.innerHTML = milliSecondes.split("")[1];
+
+  // console.log(milliSecondes + "je suis les secondes");
+}
 
 function printSplit() {
   splits.innerHTML += `<li>${chronometer.splitClick()} </li>`;
