@@ -46,11 +46,11 @@ class Hangman {
   }
 
   checkWinner() {
-    if (this.guessedLetters.length === this.secretWord.length) {
-      return true
-    } else {
-      return false
+    // ... your code goes here
+    if (this.guessedLetters.length === this.secretWord.length){
+      return true;
     }
+    return false;
   }
 }
 
@@ -72,14 +72,38 @@ if (startGameButton) {
     console.log("i am clicked");
 
     // HINT (uncomment when start working on the canvas portion of the lab)
-    // hangman.secretWord = hangman.pickWord();
-    // hangmanCanvas = new HangmanCanvas(hangman.secretWord);
+    hangman.secretWord = hangman.pickWord();
+    hangmanCanvas = new HangmanCanvas(hangman.secretWord);
 
-    // ... your code goes here
+    hangmanCanvas.drawLines();
   });
 }
 
 document.addEventListener("keydown", (event) => {
-  // React to user pressing a key
-  // ... your code goes here
+  let letterValue = event.key;
+  if (hangman.checkIfLetter(event.keyCode)) {
+    hangman.checkClickedLetters();
+
+    let arraySecret = hangman.secretWord.split("");
+
+    if (hangman.letters.indexOf(letterValue) < 0) {
+      if (hangman.secretWord.includes(letterValue)) {
+        arraySecret.forEach((letter, index) => {
+          if (letter === letterValue) {
+            hangman.addCorrectLetter(letterValue);
+            hangmanCanvas.writeCorrectLetter(index);
+          }
+        });
+      } else {
+        hangman.addWrongLetter(letterValue);
+        hangmanCanvas.writeWrongLetter(letterValue, hangman.errorsLeft);
+        hangmanCanvas.gameOver();
+      }
+    }
+
+    if (hangman.checkWinner()) {
+      hangmanCanvas.winner();
+    }
+    hangmanCanvas.drawHangman(hangman.errorsLeft);
+  }
 });
