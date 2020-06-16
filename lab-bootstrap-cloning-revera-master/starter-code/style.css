@@ -1,0 +1,69 @@
+/* HEADER  */
+.logo {
+
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 10px 0;
+    padding-left: 30px !important;
+    margin: auto;
+}
+
+
+.menu {
+    background-color: aquamarine;
+}
+
+.submenu {
+    margin: auto;
+}
+
+.submenu li {
+    /* background-color: green; */
+    color: #777;
+    display: inline-block;
+
+    padding: 20px 10px;
+    text-decoration: none;
+}
+
+
+/* CARROUSEL  */
+
+.carrousel img {
+    /* max-height: 50vh;
+   background-size: cover; */
+}
+
+.carousel-item img{
+    background: url("./img/overlay.png");
+    z-index: 100;
+    filter: grayscale(50%);
+}
+/* 
+.doverlay {
+    background-image: url("./img/overlay.png");
+    background-repeat:repeat;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    left: 0px; 
+    top: 200px;
+    z-index: 100;
+} */
+
+
+
+/* VALUES  */
+
+/* LATEST PROJECTS  */
+
+.project img {
+    padding-right: 6.5px;
+    padding-bottom: 15px;
+}
+
+/* LATEST ARTICLES  */
+
+/* TOP FOOTER  */
+
+/* BOTTOM FOOTER FOOTER  */
