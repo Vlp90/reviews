@@ -1,9 +1,25 @@
 class SortedList {
-  constructor() {}
+  constructor() {
+    this.items = [];
+    this.length = this.items.length;
+  }
 
-  add(item) {}
+  add(item) {
+    this.items.push(item);
+    this.length = this.items.length;
+    this.items.sort(function (a, b) {
+      return a - b;
+    });
+  }
 
-  get(pos) {}
+  get(pos) {
+    const element = this.items[pos];
+    if (element) {
+      return element;
+    } else {
+      throw new Error("OutOfBounds");
+    }
+  }
 
   max() {}
 
