@@ -21,7 +21,13 @@ class SortedList {
     }
   }
 
-  max() {}
+  max() {
+    if (this.length === 0) {
+      throw new Error("No values in array");
+    } else {
+      return Math.max(...this.items);
+    }
+  }
 
   min() {}
 
