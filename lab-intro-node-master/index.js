@@ -48,7 +48,13 @@ class SortedList {
     }
   }
 
-  avg() {}
+  avg() {
+    if (this.length === 0) {
+      throw new Error ('No values in array') 
+    } else {
+      return this.sum() / this.length
+    }
+  }
 }
 
 module.exports = SortedList;
