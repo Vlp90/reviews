@@ -29,7 +29,13 @@ class SortedList {
     }
   }
 
-  min() {}
+  min() {
+    if (this.length === 0 ) {
+      throw new Error ('No values in array') 
+    } else {
+      return Math.min(...this.items)
+    }
+  }
 
   sum() {}
 
