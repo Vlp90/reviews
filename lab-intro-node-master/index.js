@@ -37,7 +37,16 @@ class SortedList {
     }
   }
 
-  sum() {}
+  sum() { 
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    if (this.length === 0) {
+      return 0
+    } else {
+      return this.items.reduce(reducer)
+    }
+  }
 
   avg() {}
 }
