@@ -1,0 +1,24 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+/*# sourceMappingURL=style.css.map */
+
+.movie-container {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: top; /* here */
+}
+
+.movie-container p {
+width: 80%;
+margin-bottom: 50px;
+}
+
+.movie-container h4 {
+  width: 80%;
+
+  }
