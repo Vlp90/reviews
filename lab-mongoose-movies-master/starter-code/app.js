@@ -53,6 +53,7 @@ app.locals.title = 'MMM - Mongo Movie Master';
 
 const index = require('./routes/index');
 app.use('/', index);
+app.use("/", require("./routes/celebrities"));
 
 
 module.exports = app;

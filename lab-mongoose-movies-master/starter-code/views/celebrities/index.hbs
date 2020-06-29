@@ -1,0 +1,8 @@
+<a href="/">Go back</a>
+
+<h1>All Celebrities</h1>
+<a href="/celebrities/create">Add New</a>
+{{#each allCelebrities}}
+<h2>{{this.name}}</h2> <a href="/celebrities/{{_id}}">See More</a>
+<br>
+{{/each}}
