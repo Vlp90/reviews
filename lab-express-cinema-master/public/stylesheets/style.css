@@ -5,20 +5,13 @@ body {
 a {
   color: #00B7FF; }
 
-/*# sourceMappingURL=style.css.map */
-
 .movie-container {
   display: inline-block;
-  margin-right: 20px;
-  vertical-align: top; /* here */
-}
+  margin: 0 20px 20px 0;
+  text-align: center; }
 
-.movie-container p {
-width: 80%;
-margin-bottom: 50px;
-}
+.list {
+  display: inline-block;
+  list-style: none; }
 
-.movie-container h4 {
-  width: 80%;
-
-  }
+/*# sourceMappingURL=style.css.map */

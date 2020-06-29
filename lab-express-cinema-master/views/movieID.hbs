@@ -1,0 +1,34 @@
+<h1>Hello to the movies ID</h1>
+
+
+<div class="page-container">
+
+    <div class="decription-container">
+
+        <div class="part-left">
+            <img src="{{movieID.image}}">
+        </div>
+
+        <div class="part-right">
+            <a href="/movies"> Go back</a>
+            <h2>{{movieID.title}}</h2>
+            <h3>Director : {{movieID.director}}</h3>
+            <div>
+                <h3>Stars</h3>
+                {{#each movieID.stars}}
+                <li>
+                    {{this}}
+                </li>
+                {{/each}}
+            </div>
+            <h3>Description :</h3>
+            <p>{{movieID.description}}</p>
+            <h3>Showtimes :</h3>
+            {{#each movieID.showtimes}}
+            <li class="list">
+                {{this}} |
+            </li>
+            {{/each}}
+
+        </div>
+    </div>
