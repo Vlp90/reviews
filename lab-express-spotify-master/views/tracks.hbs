@@ -1,0 +1,8 @@
+<h1>Albums</h1>
+
+{{#each tracks}}
+<figure>
+    <p>Listen to {{this.name}}</p>
+    <audio controls="" src="{{this.href}}" class="audio-size"></audio>
+</figure>
+{{/each}}
