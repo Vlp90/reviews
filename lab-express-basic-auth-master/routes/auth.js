@@ -84,7 +84,7 @@ router.post('/login', (req, res, next) => {
 		})
 		.then((user) => {
 			if (!user) {
-                console.log(user)
+                // console.log(user)
 				res.render('auth/login', {
 					errorMessage: "The username doesn't exist."
 				});
@@ -106,5 +106,12 @@ router.post('/login', (req, res, next) => {
 });
 
 
+
+// LOG OUT
+router.get('/logout', (req, res) => {
+	req.session.destroy((err) => {
+		res.redirect('/');
+	});
+});
 
 module.exports = router;
