@@ -9,6 +9,24 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
+// Authentification & session
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
+mongoose
+  .connect("mongodb://localhost/starter-code", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then((x) => {
+    console.log(
+      `-------Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
+  })
+  .catch((err) => {
+    console.error("Error connecting to mongo", err);
+  });
+
 const app_name = require("./package.json").name;
 const debug = require("debug")(
   `${app_name}:${path.basename(__filename).split(".")[0]}`
@@ -16,17 +34,14 @@ const debug = require("debug")(
 
 const app = express();
 
-// Authentification & session
-const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-
-// require database configuration
-require("./configs/db.config");
-
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
 app.use(cookieParser());
 
 app.use(
@@ -44,11 +59,9 @@ app.use(
   })
 );
 
+// hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
+
 // Express View engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
-app.use(express.static(path.join(__dirname, "public")));
-app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 app.use(
   require("node-sass-middleware")({
@@ -58,10 +71,42 @@ app.use(
   })
 );
 
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
+app.use(express.static(path.join(__dirname, "public")));
+app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
-const index = require("./routes/index.routes");
+// CHECK STATUS
+function checkloginStatus(req, res, next) {
+  res.locals.user = req.session.currentUser ? req.session.currentUser : null;
+  res.locals.isLoggedIn = Boolean(req.session.currentUser);
+  next();
+}
+
+function eraseSessionMessage() {
+  var count = 0;
+  return function (req, res, next) {
+    if (req.session.msg) {
+      if (count) {
+        count = 0;
+        req.session.msg = null;
+      }
+      ++count;
+    }
+    next();
+  };
+}
+
+app.use(checkloginStatus);
+app.use(eraseSessionMessage());
+
+const index = require("./routes/index");
 app.use("/", index);
+app.use("/", require("./routes/auth"));
+// app.use('/', require('./routes/login'));
+// app.use('/', require('./routes/logout'));
 
 module.exports = app;
