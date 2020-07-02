@@ -1,21 +1,17 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-/* GET home page */
-router.get('/', (req, res, next) => res.render('index'));
+// PROTECTED PAGE
+// const isAuth = require("../middlewares/requireAdmin");
+// const isAuthorized = require("../middlewares/requireAuth");
 
+/* GET home page */
+router.get("/", (req, res, next) => res.render("index"));
 
 router.get("/", (req, res, next) => {
-    res.render("index");
-  });
-  
+  res.render("index");
+});
 
-router.get("/private", (req, res, next) => {
-    res.render("private.hbs");
-  });
-  
-  router.get("/main", (req, res, next) => {
-    res.render("main");
-  });
-  
-  module.exports = router;
+
+
+module.exports = router;

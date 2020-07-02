@@ -9,6 +9,8 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
+// const isAuth = require("./middlewares/requireAuth");
+
 // Authentification & session
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -43,7 +45,9 @@ app.use(
   })
 );
 app.use(cookieParser());
+// app.use(isAuth())
 
+// SETTING SESSION COOKIES
 app.use(
   session({
     secret: "basic-auth-secret",
@@ -79,7 +83,7 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
-// CHECK STATUS
+// CHECK THE STATUS OF SESSIO?
 function checkloginStatus(req, res, next) {
   res.locals.user = req.session.currentUser ? req.session.currentUser : null;
   res.locals.isLoggedIn = Boolean(req.session.currentUser);
