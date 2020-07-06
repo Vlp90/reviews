@@ -1,0 +1,39 @@
+{
+    "characters": [
+      {
+        "name": "TOTO",
+        "occupation": "NERD",
+        "weapon": "Javascript",
+        "cartoon": false,
+        "id": 8
+      },
+      {
+        "name": "si",
+        "occupation": "la",
+        "weapon": "to",
+        "cartoon": false,
+        "id": 10
+      },
+      {
+        "name": "ioshd",
+        "occupation": "sdsd",
+        "weapon": "sdsd",
+        "cartoon": false,
+        "id": 11
+      },
+      {
+        "name": "dzadazdazd",
+        "occupation": "dazaada",
+        "weapon": "dadadadaz",
+        "cartoon": true,
+        "id": 12
+      },
+      {
+        "name": "Zoompero",
+        "occupation": "js",
+        "weapon": "www",
+        "cartoon": true,
+        "id": 13
+      }
+    ]
+  }
