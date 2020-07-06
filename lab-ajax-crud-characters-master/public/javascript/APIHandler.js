@@ -20,7 +20,7 @@ class APIHandler {
   //   return this.service.patch("/characters/" + id, data);
   // }
 
-  // deleteOneRegister(id) {
-  //   return this.service.delete("/characters/" + id);
-  // }
+  deleteOneRegister(id) {
+    return this.service.delete("/characters/" + id);
+  }
 }

@@ -8,13 +8,6 @@
       "id": 1
     },
     {
-      "name": "si",
-      "occupation": "la",
-      "weapon": "to",
-      "cartoon": false,
-      "id": 2
-    },
-    {
       "name": "ioshd",
       "occupation": "sdsd",
       "weapon": "sdsd",
@@ -48,13 +41,6 @@
       "weapon": "test",
       "cartoon": true,
       "id": 7
-    },
-    {
-      "name": "testé",
-      "occupation": "testééé",
-      "weapon": "tetttt",
-      "cartoon": false,
-      "id": 8
     }
   ]
 }

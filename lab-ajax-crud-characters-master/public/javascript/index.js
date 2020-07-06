@@ -12,9 +12,9 @@ window.addEventListener("load", () => {
     fetchOneCharacter(event);
   };
 
-  // document.getElementById("delete-one").onclick = function (event) {
-  //   deleteCharacter(event);
-  // };
+  document.getElementById("delete-one").onclick = function (event) {
+    deleteCharacter(event);
+  };
 
   // document.getElementById("edit-character-form").onsubmit = function (event) {
   //   // Prevent default in order to disable the default behaviour of a form.
@@ -91,18 +91,18 @@ function fetchOneCharacter(event) {
     });
 }
 
-// function deleteCharacter(event) {
-//   const characterId = document.querySelector(".operation.delete input").value;
-//   charactersAPI
-//     .deleteOneRegister(characterId)
-//     .then((apiRes) => {
-//       handleSuccess(event.target);
-//       fetchAllCharacters();
-//     })
-//     .catch((apiErr) => {
-//       handleError(event.target);
-//     });
-// }
+function deleteCharacter(event) {
+  const characterId = document.querySelector(".operation.delete input").value;
+  charactersAPI
+    .deleteOneRegister(characterId)
+    .then((apiRes) => {
+      handleSuccess(event.target);
+      fetchAllCharacters();
+    })
+    .catch((apiErr) => {
+      handleError(event.target);
+    });
+}
 
 // function editCharacter(event) {
 //   const editForm = document.getElementById("edit-character-form");
