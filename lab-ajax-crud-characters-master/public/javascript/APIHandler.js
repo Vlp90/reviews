@@ -8,13 +8,13 @@ class APIHandler {
     return this.service.get("/characters");
   }
 
-  // getOneRegister(id) {
-  //   return this.service.get("/characters/" + id);
-  // }
+  getOneRegister(id) {
+    return this.service.get("/characters/" + id);
+  }
 
-  // createOneRegister(data) {
-  //   return this.service.post("/characters", data);
-  // }
+  createOneRegister(data) {
+    return this.service.post("/characters", data);
+  }
 
   // updateOneRegister(id, data) {
   //   return this.service.patch("/characters/" + id, data);
