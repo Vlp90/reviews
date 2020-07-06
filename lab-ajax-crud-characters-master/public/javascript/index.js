@@ -16,12 +16,12 @@ window.addEventListener("load", () => {
     deleteCharacter(event);
   };
 
-  // document.getElementById("edit-character-form").onsubmit = function (event) {
-  //   // Prevent default in order to disable the default behaviour of a form.
-  //   // Avoids page refresh too.
-  //   event.preventDefault();
-  //   editCharacter(event);
-  // };
+  document.getElementById("edit-character-form").onsubmit = function (event) {
+    // Prevent default in order to disable the default behaviour of a form.
+    // Avoids page refresh too.
+    event.preventDefault();
+    editCharacter(event);
+  };
 
   document.getElementById("new-character-form").onsubmit = function (event) {
     // Prevent default in order to disable the default behaviour of a form.
@@ -78,7 +78,8 @@ function fetchOneCharacter(event) {
   charactersContainer.innerHTML = "";
 
   if (!characterId)
-    return (charactersContainer.innerHTML = "<div>No Character ID selected</div>");
+    return (charactersContainer.innerHTML =
+      "<div>No Character ID selected</div>");
   charactersAPI
     .getOneRegister(characterId)
     .then((apiResult) => {
@@ -104,35 +105,36 @@ function deleteCharacter(event) {
     });
 }
 
-// function editCharacter(event) {
-//   const editForm = document.getElementById("edit-character-form");
-//   // Get the inputs
-//   const idInput = editForm.querySelector("input[name='chr-id']");
-//   const nameInput = editForm.querySelector("input[name='name']");
-//   const occupationInput = editForm.querySelector("input[name='occupation']");
-//   const weaponInput = editForm.querySelector("input[name='weapon']");
-//   const isCartoonInput = editForm.querySelector("input[name='cartoon']");
+// EDIT CHARACTER
+function editCharacter(event) {
+  const editForm = document.getElementById("edit-character-form");
+  // Get the inputs
+  const idInput = editForm.querySelector("input[name='chr-id']");
+  const nameInput = editForm.querySelector("input[name='name']");
+  const occupationInput = editForm.querySelector("input[name='occupation']");
+  const weaponInput = editForm.querySelector("input[name='weapon']");
+  const isCartoonInput = editForm.querySelector("input[name='cartoon']");
 
-//   // Create update object from input values.
-//   const characterUpdate = {
-//     name: nameInput.value,
-//     occupation: occupationInput.value,
-//     weapon: weaponInput.value,
-//     cartoon: isCartoonInput.checked,
-//   };
+  // Create update object from input values.
+  const characterUpdate = {
+    name: nameInput.value,
+    occupation: occupationInput.value,
+    weapon: weaponInput.value,
+    cartoon: isCartoonInput.checked,
+  };
 
-// Make the call
-//   charactersAPI
-//     .updateOneRegister(idInput.value, characterUpdate)
-//     .then((apiRes) => {
-//       handleSuccess(editForm.querySelector("#send-data"));
-//       // Fetch all characters to display the result
-//       fetchAllCharacters();
-//     })
-//     .catch((apiErr) => {
-//       handleError(editForm.querySelector("#send-data"));
-//     });
-// }
+  // Make the call
+  charactersAPI
+    .updateOneRegister(idInput.value, characterUpdate)
+    .then((apiRes) => {
+      handleSuccess(editForm.querySelector("#send-data"));
+      // Fetch all characters to display the result
+      fetchAllCharacters();
+    })
+    .catch((apiErr) => {
+      handleError(editForm.querySelector("#send-data"));
+    });
+}
 
 // CREATE CHARACTER
 function createCharacter(event) {

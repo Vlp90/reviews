@@ -16,9 +16,9 @@ class APIHandler {
     return this.service.post("/characters", data);
   }
 
-  // updateOneRegister(id, data) {
-  //   return this.service.patch("/characters/" + id, data);
-  // }
+  updateOneRegister(id, data) {
+    return this.service.patch("/characters/" + id, data);
+  }
 
   deleteOneRegister(id) {
     return this.service.delete("/characters/" + id);

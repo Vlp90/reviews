@@ -1,9 +1,9 @@
 {
   "characters": [
     {
-      "name": "TOTO",
-      "occupation": "NERD",
-      "weapon": "Javascript",
+      "name": "test",
+      "occupation": "test",
+      "weapon": "test",
       "cartoon": false,
       "id": 1
     },
