@@ -112,7 +112,7 @@ router.get("/logout", (req, res) => {
   });
 });
 
-// ALL PROTECTED PAGES
+// ALL PROTECTED PAGES IF NOT LOGGED
 router.use((req, res, next) => {
   if (req.session.currentUser) {
     next();
