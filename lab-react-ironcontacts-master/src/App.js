@@ -30,22 +30,22 @@ class App extends Component {
       });
     };
 
-  //   sortByPopularity = () => {
-  //     this.setState({
-  //       contactData: this.state.contactData.slice().sort((a, b) => {
-  //         return b.popularity - a.popularity;
-  //       })
-  //     });
-  //   };
+    sortByPopularity = () => {
+      this.setState({
+        contactData: this.state.contactData.slice().sort((a, b) => {
+          return b.popularity - a.popularity;
+        })
+      });
+    };
 
-  //   deleteContact = index => {
-  //     const withoutContact = [...this.state.contactData];
-  //     withoutContact.splice(index, 1);
+    // deleteContact = index => {
+    //   const withoutContact = [...this.state.contactData];
+    //   withoutContact.splice(index, 1);
 
-  //     this.setState({
-  //       contactData: withoutContact
-  //     });
-  //   };
+    //   this.setState({
+    //     contactData: withoutContact
+    //   });
+    // };
 
   render() {
     return (
@@ -53,7 +53,7 @@ class App extends Component {
         <h1>IronContacts</h1>
         <button onClick={this.addRandomContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort by name</button>
-        {/* <button onClick={this.sortByPopularity}>Sort by popularity</button>  */}
+        <button onClick={this.sortByPopularity}>Sort by popularity</button> 
 
         <div className="center">
           <ContactsList
