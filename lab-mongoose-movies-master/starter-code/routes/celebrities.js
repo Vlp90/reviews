@@ -21,7 +21,7 @@ router.get("/celebrities/create", (req, res, next) => {
 });
 
 // CREATE NEW
-router.post("/celebrities", (req, res, next) => {
+router.post("/test", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
 
   if (name === "" || occupation === "" || catchPhrase === "") {
