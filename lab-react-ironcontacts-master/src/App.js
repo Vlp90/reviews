@@ -55,7 +55,7 @@ class App extends Component {
         <button onClick={this.sortByName}>Sort by name</button>
         <button onClick={this.sortByPopularity}>Sort by popularity</button> */}
 
-        <div className="App">
+        <div className="center">
           <ContactsList
             // deleteContact={this.deleteContact}
             contacts={this.state.contactData}
