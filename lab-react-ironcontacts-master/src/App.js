@@ -5,30 +5,30 @@ import contacts from './contacts.json';
 
 class App extends Component {
   state = {
-    contactData: contacts.slice(0, 10),
+    contactData: contacts.slice(0, 5),
   };
 
-  //  addRandomContact = () => {
-  //     let min = 5;
-  //     let max = contacts.length;
-  //     const randomIndex = Math.floor(Math.random() * (max - min)) + min;
-  //     const copy = [...this.state.contactData];
-  //     const newContact = contacts[randomIndex];
-  //     copy.push(newContact);
-  //     this.setState({ contactData: copy });
-  //   };
+   addRandomContact = () => {
+      let min = 5;
+      let max = contacts.length;
+      const randomIndex = Math.floor(Math.random() * (max - min)) + min;
+      const copy = [...this.state.contactData];
+      const newContact = contacts[randomIndex];
+      copy.push(newContact);
+      this.setState({ contactData: copy });
+    };
 
-  //   sortByName = () => {
-  //     this.setState({
-  //       contactData: this.state.contactData.slice().sort((a, b) => {
-  //         if (a.name.toLowerCase() < b.name.toLowerCase()) {
-  //           return -1;
-  //         } else {
-  //           return 1;
-  //         }
-  //       })
-  //     });
-  //   };
+    sortByName = () => {
+      this.setState({
+        contactData: this.state.contactData.slice().sort((a, b) => {
+          if (a.name.toLowerCase() < b.name.toLowerCase()) {
+            return -1;
+          } else {
+            return 1;
+          }
+        })
+      });
+    };
 
   //   sortByPopularity = () => {
   //     this.setState({
@@ -51,9 +51,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        {/* <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.addRandomContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort by name</button>
-        <button onClick={this.sortByPopularity}>Sort by popularity</button> */}
+        {/* <button onClick={this.sortByPopularity}>Sort by popularity</button>  */}
 
         <div className="center">
           <ContactsList
