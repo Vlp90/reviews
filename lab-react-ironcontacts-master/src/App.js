@@ -38,14 +38,14 @@ class App extends Component {
       });
     };
 
-    // deleteContact = index => {
-    //   const withoutContact = [...this.state.contactData];
-    //   withoutContact.splice(index, 1);
+    deleteContact = index => {
+      const withoutContact = [...this.state.contactData];
+      withoutContact.splice(index, 1);
 
-    //   this.setState({
-    //     contactData: withoutContact
-    //   });
-    // };
+      this.setState({
+        contactData: withoutContact
+      });
+    };
 
   render() {
     return (
@@ -57,7 +57,7 @@ class App extends Component {
 
         <div className="center">
           <ContactsList
-            // deleteContact={this.deleteContact}
+            deleteContact={this.deleteContact}
             contacts={this.state.contactData}
           />
         </div>
